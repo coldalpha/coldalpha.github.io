@@ -1,0 +1,18 @@
+daemon off;
+
+events {
+}
+
+http {
+    include mime.types;
+
+    server {
+        listen <%= ENV["PORT"] %>;
+
+        location / {
+            root /app;
+            index index.html;
+            try_files $uri $uri/ /index.html;
+        }
+    }
+}
